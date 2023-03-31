@@ -51,6 +51,13 @@ function setGame() {
                 tile.innerText = board[r][c];
                 tile.classList.add("tile-start")
             }
+            if (r == 2 || r == 5) {
+                tile.classList.add("horizontal-line")
+            }
+            if (c == 2 || c == 5) {
+                tile.classList.add("vertical-line")
+            }
+            
             tile.addEventListener("click", selectTile)
             tile.classList.add("tile");
             document.getElementById("board").append(tile)
@@ -71,6 +78,12 @@ function selectTile() {
         if (this.innerText != "") {
             return;
         }
-        this.innerText = numSelected.id
+        this.innerText = numSelected.id;
+
+        let coords = this.id.split("-");
+        let r = parseInt(coords[0]);
+        let c = parseInt(coords[1]);
+
+        https://www.youtube.com/watch?v=S4uRtTb8U-U
     }
 }
