@@ -39,7 +39,7 @@ function setGame() {
         number.innerText = i;
         number.addEventListener("click", selectNumber);
         number.classList.add("number");
-        document.getElementById("digits").appendChild(number)
+        document.getElementById("digits").appendChild(number);
     }
     
     // Board 9x9
@@ -60,7 +60,7 @@ function setGame() {
             
             tile.addEventListener("click", selectTile)
             tile.classList.add("tile");
-            document.getElementById("board").append(tile)
+            document.getElementById("board").append(tile);
         }
     }
 }
@@ -78,12 +78,19 @@ function selectTile() {
         if (this.innerText != "") {
             return;
         }
-        this.innerText = numSelected.id;
+        
 
         let coords = this.id.split("-");
         let r = parseInt(coords[0]);
         let c = parseInt(coords[1]);
 
-        https://www.youtube.com/watch?v=S4uRtTb8U-U
+        if (solution[r][c] == numSelected.id) {
+            this.innerText = numSelected.id;
+        } else {
+            errors += 1;
+            document.getElementById("errors").innerHTML = errors;
+        }
+
+ 
     }
 }
